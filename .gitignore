@@ -1,0 +1,5 @@
+android-x86
+running_logs
+*.pkl
+.idea
+/apk_detect_result.txt

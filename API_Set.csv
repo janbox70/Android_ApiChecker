@@ -1,0 +1,427 @@
+Restricted API,Highly-Correlation API,Sensitive Operation API,Union
+android.provider.ContactsContract set,android.telephony.SmsManager sendTextMessage,java.lang.Runtime getRuntime,android.accounts.AccountManager addAccount
+android.provider.Browser updateVisitedHistory,android.telephony.SmsManager getDefault,java.lang.Runtime exec,android.accounts.AccountManager addOnAccountsUpdatedListener
+android.location.LocationManager sendExtraCommand,android.telephony.SmsManager sendDataMessage,java.lang.ProcessBuilder start,android.accounts.AccountManager blockingGetAuthToken
+android.provider.Browser addSearchUrl,android.net.wifi.WifiManager setWifiEnabled,java.lang.Runtime load,android.accounts.AccountManager confirmCredentials
+android.location.LocationManager requestLocationUpdates,android.telephony.TelephonyManager getLine1Number,java.lang.Runtime loadLibrary,android.accounts.AccountManager editProperties
+android.net.sip.SipManager createSipSession,java.io.DataInputStream readLine,android.os.Environment getDataDirectory,android.accounts.AccountManager getAccounts
+android.location.LocationManager addNmeaListener,android.telephony.SmsMessage createFromPdu,android.os.Environment getDownloadCacheDirectory,android.accounts.AccountManager getAccountsByType
+android.telephony.SmsManager divideMessage,java.security.InvalidAlgorithmParameterException printStackTrace,android.os.Environment getExternalStorageDirectory,android.accounts.AccountManager getAccountsByTypeAndFeatures
+android.net.sip.SipManager register,android.net.Proxy getDefaultPort,android.os.Environment getExternalStoragePublicDirectory,android.accounts.AccountManager getAuthToken
+android.location.LocationManager getProvider,java.security.Key getEncoded,android.os.Environment getRootDirectory,android.accounts.AccountManager getAuthTokenByFeatures
+android.telephony.TelephonyManager getCellLocation,android.net.Proxy getDefaultHost,android.os.storage.StorageManager getPrimaryStorageVolume,android.accounts.AccountManager getAuthTokenLabel
+android.provider.ContactsContract getContactLookupUri,android.telephony.TelephonyManager getSimSerialNumber,android.os.storage.StorageManager getStorageVolumes,android.accounts.AccountManager hasFeatures
+android.telephony.TelephonyManager getDeviceSoftwareVersion,android.app.Application onCreate,java.io.File createNewFile,android.accounts.AccountManager removeAccount
+android.app.DownloadManager getUriForDownloadedFile,android.content.IntentFilter setPriority,java.io.File delete,android.accounts.AccountManager updateCredentials
+android.provider.Browser deleteHistoryTimeFrame,javax.crypto.IllegalBlockSizeException printStackTrace,java.io.File listFiles,android.app.ActivityManager getRunningAppProcesses
+android.telephony.PhoneNumberUtils isVoiceMailNumber,javax.crypto.BadPaddingException printStackTrace,java.io.File list,android.app.ActivityManager getRunningServices
+android.speech.SpeechRecognizer cancel,android.telephony.TelephonyManager getSubscriberId,java.io.File mkdir,android.app.ActivityManager getRunningTasks
+android.provider.ContactsContract markAsContacted,org.xmlpull.v1.XmlSerializer text,java.io.File renameTo,android.app.ActivityManager killBackgroundProcesses
+android.telephony.TelephonyManager getSubscriberId,java.security.cert.CertificateEncodingException printStackTrace,java.io.FileWriter write,android.app.AlertDialog AlertDialog
+android.telephony.gsm.SmsManager sendTextMessage,java.lang.Process waitFor,java.io.FileOutputStream write,android.app.AlertDialog onCreate
+android.telephony.TelephonyManager getGroupIdLevel1,android.telephony.SmsMessage getOriginatingAddress,android.database.sqlite.SQLiteDatabase create,android.app.Application Application
+android.provider.ContactsContract notifyDirectoryChange,android.net.wifi.WifiManager getConfiguredNetworks,android.database.sqlite.SQLiteDatabase delete,android.app.Application attachBaseContext
+android.provider.Contacts setSetting,java.lang.Process getOutputStream,android.database.sqlite.SQLiteDatabase deleteDatabase,android.app.Application getDir
+android.accounts.AccountManager editProperties,android.telephony.SmsMessage getMessageBody,android.database.sqlite.SQLiteDatabase execSQL,android.app.Application onCreate
+android.widget.QuickContactBadge assignContactFromEmail,javax.crypto.spec.DESKeySpec DESKeySpec,android.database.sqlite.SQLiteDatabase insert,android.app.Dialog dispatchKeyEvent
+android.net.sip.SipManager open,java.net.URISyntaxException getCause,android.database.sqlite.SQLiteDatabase insertWithOnConflict,android.app.Dialog setOnKeyListener
+android.accounts.AccountManager addAccount,android.webkit.WebSettings getMinimumFontSize,android.database.sqlite.SQLiteDatabase query,android.app.DownloadManager addCompletedDownload
+android.provider.Contacts markAsContacted,java.util.concurrent.FutureTask done,android.database.sqlite.SQLiteDatabase rawQuery,android.app.DownloadManager enqueue
+android.provider.Browser deleteFromHistory,java.io.BufferedInputStream reset,android.database.sqlite.SQLiteDatabase updateWithOnConflict,android.app.DownloadManager getUriForDownloadedFile
+android.accounts.AccountManager blockingGetAuthToken,java.io.BufferedInputStream mark,android.database.sqlite.SQLiteDatabase update,android.app.Instrumentation callActivityOnNewIntent
+android.app.DownloadManager enqueue,java.security.Security setProperty,android.database.sqlite.SQLiteOpenHelper SQLiteOpenHelper,android.app.Instrumentation callActivityOnPostCreate
+android.net.ConnectivityManager startUsingNetworkFeature,android.webkit.WebSettings setMinimumFontSize,java.net.URLConnection connect,android.app.Instrumentation callActivityOnRestoreInstanceState
+android.telephony.SubscriptionManager addOnSubscriptionsChangedListener,android.webkit.WebView setDownloadListener,java.net.HttpURLConnection connect,android.app.Instrumentation callActivityOnSaveInstanceState
+android.location.LocationManager getBestProvider,javax.crypto.NoSuchPaddingException printStackTrace,java.net.Socket connect,android.app.Instrumentation callActivityOnStart
+android.accounts.AccountManager hasFeatures,java.security.InvalidKeyException printStackTrace,android.os.PowerManager newWakeLock,android.app.Instrumentation callActivityOnUserLeaving
+android.accounts.AccountManager getAccounts,java.util.concurrent.ThreadPoolExecutor getCompletedTaskCount,android.content.Context startService,android.app.Instrumentation onException
+android.telephony.SmsManager sendMultipartTextMessage,java.util.concurrent.ThreadPoolExecutor getTaskCount,android.content.Context stopService,android.app.KeyguardManager exitKeyguardSecurely
+android.accounts.AccountManager getAuthToken,android.webkit.WebSettings setTextSize,android.content.Context bindService,android.app.Service onConfigurationChanged
+android.provider.Browser truncateHistory,java.security.cert.Certificate getPublicKey,android.app.ActivityManager getRunningTasks,android.app.Service onLowMemory
+android.net.sip.SipManager close,android.telephony.TelephonyManager getVoiceMailAlphaTag,android.app.ActivityManager getRunningServices,android.app.Service onStart
+android.net.sip.SipManager unregister,android.net.NetworkInfo getExtraInfo,android.app.ActivityManager killBackgroundProcesses,android.app.Service onStartCommand
+android.app.KeyguardManager exitKeyguardSecurely,java.util.zip.Adler32 reset,android.app.ActivityManager getRunningAppProcesses,android.bluetooth.BluetoothAdapter getAddress
+android.accounts.AccountManager getAuthTokenLabel,java.io.LineNumberReader close,android.content.Context startActivity,android.content.BroadcastReceiver abortBroadcast
+android.location.LocationManager addGpsStatusListener,java.util.jar.JarFile entries,android.content.Context sendBroadcast,android.content.ContentResolver delete
+android.media.MediaRecorder setVideoSource,java.util.jar.JarEntry getName,android.content.Context registerReceiver,android.content.Context bindService
+android.provider.Contacts queryGroups,android.os.HandlerThread isAlive,android.content.BroadcastReceiver abortBroadcast,android.content.Context fileList
+android.telephony.SubscriptionManager getActiveSubscriptionInfo,android.location.LocationManager setTestProviderEnabled,java.lang.Class forName,android.content.Context registerReceiver
+android.telephony.TelephonyManager getVoiceMailNumber,android.telephony.SignalStrength getEvdoSnr,java.lang.Class getDeclaredMethod,android.content.Context sendBroadcast
+android.hardware.Camera open,android.app.AlertDialog onCreate,java.lang.Class getDeclaredMethods,android.content.Context startActivity
+android.provider.ContactsContract newSetOperation,java.security.spec.RSAPrivateCrtKeySpec RSAPrivateCrtKeySpec,java.lang.Class getDeclaredField,android.content.Context startService
+android.telephony.TelephonyManager getAllCellInfo,android.view.animation.AlphaAnimation start,java.lang.reflect.Method invoke,android.content.Context stopService
+android.provider.Browser clearSearches,java.lang.Exception fillInStackTrace,java.lang.reflect.Proxy newProxyInstance,android.content.ContextWrapper createPackageContext
+android.telephony.TelephonyManager getVoiceMailAlphaTag,android.telephony.SignalStrength getCdmaEcio,android.view.ViewManager addView,android.content.ContextWrapper removeStickyBroadcast
+android.telephony.gsm.SmsManager divideMessage,android.telephony.TelephonyManager getVoiceMailNumber,android.view.ViewManager removeView,android.content.ContextWrapper sendBroadcast
+android.inputmethodservice.KeyboardView swipeDown,java.text.SimpleDateFormat applyLocalizedPattern,android.view.ViewGroup addView,android.content.ContextWrapper sendBroadcastAsUser
+android.net.sip.SipManager isOpened,java.security.interfaces.RSAPrivateKey getModulus,android.widget.TextView setText,android.content.ContextWrapper sendOrderedBroadcast
+android.location.LocationManager isProviderEnabled,java.net.URLClassLoader loadClass,android.app.AlertDialog AlertDialog,android.content.ContextWrapper sendOrderedBroadcastAsUser
+android.telephony.gsm.SmsManager sendMultipartTextMessage,java.net.NetworkInterface getDisplayName,android.view.WindowManager aadView,android.content.ContextWrapper sendStickyBroadcast
+android.net.sip.SipManager getSessionFor,java.util.zip.Adler32 update,android.util.Base64 encode,android.content.ContextWrapper sendStickyBroadcastAsUser
+android.telephony.TelephonyManager getDeviceId,java.util.zip.Adler32 getValue,android.util.Base64 decode,android.content.ContextWrapper sendStickyOrderedBroadcast
+android.telephony.TelephonyManager getNeighboringCellInfo,java.nio.charset.CoderResult toString,javax.crypto.Cipher doFinal,android.content.ContextWrapper sendStickyOrderedBroadcastAsUser
+android.telephony.TelephonyManager listen,java.util.Date toLocaleString,javax.crypto.Cipher getInstance,android.content.ContextWrapper stopService
+android.media.MediaRecorder setAudioSource,java.security.interfaces.RSAPublicKey getModulus,javax.crypto.Cipher init,android.content.IntentFilter setPriority
+android.speech.SpeechRecognizer stopListening,java.io.UnsupportedEncodingException initCause,javax.crypto.spec.SecretKeySpec SecretKeySpec,android.content.pm.PackageManager getPackageArchiveInfo
+android.location.LocationManager addProximityAlert,android.webkit.WebView setVerticalScrollbarOverlay,java.lang.ClassLoader ClassLoader,android.content.pm.ProviderInfo ProviderInfo
+android.provider.CalendarContract query,javax.crypto.spec.DESedeKeySpec DESedeKeySpec,dalvik.system.BaseDexClassLoader BaseDexClassLoader,android.content.pm.ServiceInfo ServiceInfo
+android.provider.Contacts getSetting,java.text.DateFormat getInstance,dalvik.system.PathClassLoader PathClassLoader,android.content.res.Configuration setToDefaults
+android.accounts.AccountManager updateCredentials,java.io.LineNumberReader readLine,dalvik.system.DexClassLoader DexClassLoader,android.database.sqlite.SQLiteDatabase create
+android.accounts.AccountManager removeAccount,org.xmlpull.v1.XmlSerializer setFeature,dalvik.system.DexFile DexFile,android.database.sqlite.SQLiteDatabase delete
+android.provider.CalendarContract insert,android.telephony.cdma.CdmaCellLocation getNetworkId,dalvik.system.InMemoryDexClassLoader InMemoryDexClassLoader,android.database.sqlite.SQLiteDatabase deleteDatabase
+android.accounts.AccountManager addOnAccountsUpdatedListener,java.lang.Process destroy,,android.database.sqlite.SQLiteDatabase execSQL
+android.telephony.SmsManager downloadMultimediaMessage,java.io.LineNumberReader LineNumberReader,,android.database.sqlite.SQLiteDatabase insert
+android.telecom.TelecomManager isInCall,android.content.res.Configuration setToDefaults,,android.database.sqlite.SQLiteDatabase insertWithOnConflict
+android.telephony.SubscriptionManager getActiveSubscriptionInfoForSimSlotIndex,android.telephony.cdma.CdmaCellLocation getBaseStationId,,android.database.sqlite.SQLiteDatabase isOpen
+android.net.sip.SipManager takeAudioCall,android.net.SSLCertificateSocketFactory getHttpSocketFactory,,android.database.sqlite.SQLiteDatabase query
+android.location.LocationManager requestSingleUpdate,java.util.jar.JarFile close,,android.database.sqlite.SQLiteDatabase rawQuery
+android.telephony.SubscriptionManager getActiveSubscriptionInfoCount,java.net.URL getDefaultPort,,android.database.sqlite.SQLiteDatabase update
+android.telephony.SmsManager sendTextMessage,java.security.spec.RSAPrivateKeySpec RSAPrivateKeySpec,,android.database.sqlite.SQLiteDatabase updateWithOnConflict
+android.net.sip.SipManager makeAudioCall,org.apache.http.params.HttpParams setIntParameter,,android.database.sqlite.SQLiteOpenHelper SQLiteOpenHelper
+android.provider.Browser clearHistory,java.util.concurrent.ThreadPoolExecutor getActiveCount,,android.graphics.drawable.NinePatchDrawable NinePatchDrawable
+android.net.sip.SipManager setRegistrationListener,javax.net.ssl.HttpsURLConnection setDefaultHostnameVerifier,,android.graphics.NinePatch isNinePatchChunk
+android.accounts.AccountManager getAccountsByTypeAndFeatures,java.lang.ProcessBuilder redirectErrorStream,,android.hardware.Camera open
+android.telephony.SmsManager sendMultimediaMessage,android.telephony.SmsManager divideMessage,,android.hardware.Sensor getName
+android.speech.SpeechRecognizer setRecognitionListener,java.util.zip.Adler32 Adler32,,android.hardware.Sensor getVendor
+android.provider.ContactsContract get,java.util.Properties store,,android.hardware.Sensor getVersion
+android.provider.VoicemailContract buildSourceUri,java.util.zip.GZIPOutputStream flush,,android.inputmethodservice.KeyboardView swipeDown
+android.telephony.SubscriptionManager getActiveSubscriptionInfoList,java.net.URLConnection setDoInput,,android.inputmethodservice.KeyboardView swipeRight
+android.speech.SpeechRecognizer startListening,android.bluetooth.BluetoothAdapter getAddress,,android.location.LocationManager addGpsStatusListener
+android.widget.QuickContactBadge onClick,java.security.cert.CertificateException printStackTrace,,android.location.LocationManager addNmeaListener
+android.net.sip.SipManager isRegistered,android.content.Context fileList,,android.location.LocationManager addProximityAlert
+android.provider.Contacts createPersonInMyContactsGroup,android.app.AlertDialog AlertDialog,,android.location.LocationManager getBestProvider
+android.telephony.gsm.SmsManager sendDataMessage,java.nio.charset.CoderResult isOverflow,,android.location.LocationManager getLastKnownLocation
+android.accounts.AccountManager getAccountsByType,java.util.zip.Deflater finished,,android.location.LocationManager getProvider
+android.provider.Contacts addToMyContactsGroup,javax.crypto.SecretKeyFactory generateSecret,,android.location.LocationManager getProviders
+android.location.LocationManager getProviders,javax.crypto.SecretKeyFactory getInstance,,android.location.LocationManager isProviderEnabled
+android.provider.CallLog getLastOutgoingCall,java.net.URLClassLoader URLClassLoader,,android.location.LocationManager requestLocationUpdates
+android.accounts.AccountManager confirmCredentials,android.webkit.WebSettings setDefaultZoom,,android.location.LocationManager requestSingleUpdate
+android.accounts.AccountManager getAuthTokenByFeatures,java.io.Reader markSupported,,android.location.LocationManager sendExtraCommand
+android.telecom.TelecomManager showInCallScreen,android.telephony.SmsMessage getDisplayOriginatingAddress,,android.location.LocationManager setTestProviderEnabled
+android.telephony.TelephonyManager getSimSerialNumber,java.lang.Runtime exec,,android.media.AudioRecord AudioRecord
+android.view.inputmethod.InputMethodManager showInputMethodAndSubtypeEnabler,android.app.Application Application,,android.media.MediaRecorder setAudioSource
+android.widget.QuickContactBadge assignContactFromPhone,javax.crypto.Mac getAlgorithm,,android.media.MediaRecorder setVideoSource
+android.provider.ContactsContract getWithUri,android.app.Service onStartCommand,,android.net.ConnectivityManager startUsingNetworkFeature
+android.inputmethodservice.KeyboardView swipeRight,java.lang.ClassLoader getParent,,android.net.NetworkInfo getExtraInfo
+android.media.AudioRecord AudioRecord,android.telephony.gsm.SmsManager divideMessage,,android.net.NetworkInfo isAvailable
+android.provider.Contacts addToGroup,android.widget.Button setLeft,,android.net.Proxy getDefaultHost
+android.telephony.TelephonyManager getLine1Number,android.telephony.gsm.SmsManager sendTextMessage,,android.net.Proxy getDefaultPort
+android.provider.ContactsContract getLookupUri,android.telephony.gsm.SmsManager getDefault,,android.net.sip.SipManager close
+android.app.DownloadManager addCompletedDownload,android.telephony.SignalStrength getEvdoDbm,,android.net.sip.SipManager createSipSession
+android.provider.Contacts addPostalLocation,java.lang.Character toTitleCase,,android.net.sip.SipManager getSessionFor
+android.telephony.SmsManager sendDataMessage,android.text.format.Time set,,android.net.sip.SipManager isOpened
+android.location.LocationManager getLastKnownLocation,android.webkit.WebView saveWebArchive,,android.net.sip.SipManager isRegistered
+,android.app.Dialog setOnKeyListener,,android.net.sip.SipManager makeAudioCall
+,java.util.SortedMap putAll,,android.net.sip.SipManager open
+,java.security.SecureRandom setSeed,,android.net.sip.SipManager register
+,android.net.wifi.WifiManager disableNetwork,,android.net.sip.SipManager setRegistrationListener
+,android.telephony.SmsMessage getDisplayMessageBody,,android.net.sip.SipManager takeAudioCall
+,java.net.NetworkInterface getByName,,android.net.sip.SipManager unregister
+,java.math.BigInteger divideAndRemainder,,android.net.SSLCertificateSocketFactory getHttpSocketFactory
+,android.net.wifi.WifiManager disconnect,,android.net.wifi.WifiManager disableNetwork
+,android.app.Dialog dispatchKeyEvent,,android.net.wifi.WifiManager disconnect
+,java.lang.StringBuffer ensureCapacity,,android.net.wifi.WifiManager enableNetwork
+,java.util.SortedSet addAll,,android.net.wifi.WifiManager getConfiguredNetworks
+,org.apache.http.conn.ConnectTimeoutException printStackTrace,,android.net.wifi.WifiManager isWifiEnabled
+,java.lang.Process getInputStream,,android.net.wifi.WifiManager saveConfiguration
+,javax.crypto.CipherOutputStream flush,,android.net.wifi.WifiManager setWifiEnabled
+,javax.crypto.CipherOutputStream write,,android.net.wifi.WifiManager updateNetwork
+,android.telephony.gsm.GsmCellLocation getLac,,android.os.Bundle getClassLoader
+,android.telephony.gsm.GsmCellLocation getCid,,android.os.Environment getDataDirectory
+,android.telephony.TelephonyManager getCellLocation,,android.os.Environment getDownloadCacheDirectory
+,javax.crypto.CipherOutputStream close,,android.os.Environment getExternalStorageDirectory
+,android.webkit.WebView removeJavascriptInterface,,android.os.Environment getExternalStoragePublicDirectory
+,android.net.wifi.WifiManager enableNetwork,,android.os.Environment getRootDirectory
+,android.widget.EditText setFocusableInTouchMode,,android.os.HandlerThread isAlive
+,java.io.FileReader read,,android.os.PowerManager newWakeLock
+,java.io.FileNotFoundException toString,,android.os.storage.StorageManager getPrimaryStorageVolume
+,android.telephony.cdma.CdmaCellLocation getBaseStationLatitude,,android.os.storage.StorageManager getStorageVolumes
+,android.telephony.cdma.CdmaCellLocation getBaseStationLongitude,,android.provider.Browser addSearchUrl
+,android.text.Editable toString,,android.provider.Browser clearHistory
+,android.net.wifi.WifiManager isWifiEnabled,,android.provider.Browser clearSearches
+,android.app.Service onStart,,android.provider.Browser deleteFromHistory
+,android.webkit.WebView getVisibility,,android.provider.Browser deleteHistoryTimeFrame
+,java.net.SocketException printStackTrace,,android.provider.Browser truncateHistory
+,org.w3c.dom.Element getElementsByTagName,,android.provider.Browser updateVisitedHistory
+,android.widget.EditText getContext,,android.provider.CalendarContract insert
+,android.webkit.WebView setTag,,android.provider.CalendarContract query
+,java.lang.ProcessBuilder start,,android.provider.CallLog getLastOutgoingCall
+,java.lang.ProcessBuilder ProcessBuilder,,android.provider.Contacts addPostalLocation
+,android.text.format.Time toMillis,,android.provider.Contacts addToGroup
+,java.text.SimpleDateFormat applyPattern,,android.provider.Contacts addToMyContactsGroup
+,android.app.Service onLowMemory,,android.provider.Contacts createPersonInMyContactsGroup
+,android.widget.LinearLayout setMinimumWidth,,android.provider.Contacts getSetting
+,android.app.Application attachBaseContext,,android.provider.Contacts markAsContacted
+,java.lang.Character Character,,android.provider.Contacts queryGroups
+,javax.crypto.Cipher getBlockSize,,android.provider.Contacts setSetting
+,android.telephony.SignalStrength isGsm,,android.provider.ContactsContract get
+,java.net.NetworkInterface getInetAddresses,,android.provider.ContactsContract getContactLookupUri
+,android.telephony.PhoneStateListener onSignalStrengthsChanged,,android.provider.ContactsContract getLookupUri
+,android.net.NetworkInfo isAvailable,,android.provider.ContactsContract getWithUri
+,java.util.WeakHashMap size,,android.provider.ContactsContract markAsContacted
+,java.util.jar.JarFile JarFile,,android.provider.ContactsContract newSetOperation
+,android.telephony.SignalStrength getGsmSignalStrength,,android.provider.ContactsContract notifyDirectoryChange
+,java.security.DigestInputStream getMessageDigest,,android.provider.ContactsContract set
+,android.database.sqlite.SQLiteDatabase isOpen,,android.provider.VoicemailContract buildSourceUri
+,java.util.Hashtable keys,,android.speech.SpeechRecognizer cancel
+,android.content.pm.PackageManager getPackageArchiveInfo,,android.speech.SpeechRecognizer setRecognitionListener
+,android.telephony.SignalStrength getCdmaDbm,,android.speech.SpeechRecognizer startListening
+,android.widget.Toast cancel,,android.speech.SpeechRecognizer stopListening
+,java.nio.charset.IllegalCharsetNameException IllegalCharsetNameException,,android.telecom.TelecomManager isInCall
+,java.nio.channels.FileChannel lock,,android.telecom.TelecomManager showInCallScreen
+,java.lang.NumberFormatException printStackTrace,,android.telephony.cdma.CdmaCellLocation getBaseStationId
+,java.nio.channels.FileLock release,,android.telephony.cdma.CdmaCellLocation getBaseStationLatitude
+,java.lang.Float Float,,android.telephony.cdma.CdmaCellLocation getBaseStationLongitude
+,java.io.OutputStreamWriter flush,,android.telephony.cdma.CdmaCellLocation getNetworkId
+,java.net.SocketTimeoutException printStackTrace,,android.telephony.cdma.CdmaCellLocation getSystemId
+,java.security.DigestInputStream read,,android.telephony.gsm.GsmCellLocation getCid
+,java.lang.StringBuffer substring,,android.telephony.gsm.GsmCellLocation getLac
+,android.net.wifi.WifiManager updateNetwork,,android.telephony.gsm.SmsManager divideMessage
+,android.telephony.TelephonyManager getSimState,,android.telephony.gsm.SmsManager getDefault
+,android.util.Base64 encode,,android.telephony.gsm.SmsManager sendDataMessage
+,android.app.Service onConfigurationChanged,,android.telephony.gsm.SmsManager sendMultipartTextMessage
+,java.io.StringReader close,,android.telephony.gsm.SmsManager sendTextMessage
+,android.webkit.CookieManager removeAllCookie,,android.telephony.PhoneNumberUtils isVoiceMailNumber
+,android.widget.EditText setFocusable,,android.telephony.PhoneStateListener onSignalStrengthsChanged
+,java.util.SortedSet iterator,,android.telephony.SignalStrength getCdmaDbm
+,java.nio.charset.CoderResult isError,,android.telephony.SignalStrength getCdmaEcio
+,android.telephony.cdma.CdmaCellLocation getSystemId,,android.telephony.SignalStrength getEvdoDbm
+,java.io.BufferedWriter close,,android.telephony.SignalStrength getEvdoSnr
+,javax.crypto.KeyGenerator init,,android.telephony.SignalStrength getGsmSignalStrength
+,android.hardware.Sensor getVersion,,android.telephony.SignalStrength isGsm
+,java.util.zip.Deflater Deflater,,android.telephony.SmsManager divideMessage
+,android.hardware.Sensor getVendor,,android.telephony.SmsManager downloadMultimediaMessage
+,java.io.ByteArrayOutputStream reset,,android.telephony.SmsManager getDefault
+,javax.crypto.KeyGenerator generateKey,,android.telephony.SmsManager sendDataMessage
+,java.io.OutputStreamWriter close,,android.telephony.SmsManager sendMultimediaMessage
+,android.widget.RadioButton setOnCheckedChangeListener,,android.telephony.SmsManager sendMultipartTextMessage
+,android.telephony.SmsManager sendMultipartTextMessage,,android.telephony.SmsManager sendTextMessage
+,javax.crypto.KeyGenerator getInstance,,android.telephony.SmsMessage createFromPdu
+,java.security.spec.RSAPublicKeySpec RSAPublicKeySpec,,android.telephony.SmsMessage getDisplayMessageBody
+,java.security.DigestInputStream DigestInputStream,,android.telephony.SmsMessage getDisplayOriginatingAddress
+,android.graphics.NinePatch isNinePatchChunk,,android.telephony.SmsMessage getMessageBody
+,android.net.wifi.WifiManager saveConfiguration,,android.telephony.SmsMessage getOriginatingAddress
+,android.widget.EditText setGravity,,android.telephony.SubscriptionManager addOnSubscriptionsChangedListener
+,java.net.URLConnection getHeaderField,,android.telephony.SubscriptionManager getActiveSubscriptionInfo
+,android.graphics.drawable.NinePatchDrawable NinePatchDrawable,,android.telephony.SubscriptionManager getActiveSubscriptionInfoCount
+,java.util.concurrent.ScheduledExecutorService awaitTermination,,android.telephony.SubscriptionManager getActiveSubscriptionInfoForSimSlotIndex
+,java.net.Proxy Proxy,,android.telephony.SubscriptionManager getActiveSubscriptionInfoList
+,java.io.FileWriter close,,android.telephony.TelephonyManager getAllCellInfo
+,java.io.BufferedReader ready,,android.telephony.TelephonyManager getCellLocation
+,android.widget.RadioButton isChecked,,android.telephony.TelephonyManager getDeviceId
+,android.webkit.WebView removeAllViews,,android.telephony.TelephonyManager getDeviceSoftwareVersion
+,android.text.format.Time Time,,android.telephony.TelephonyManager getGroupIdLevel1
+,java.util.Properties put,,android.telephony.TelephonyManager getLine1Number
+,org.apache.http.params.HttpConnectionParams setStaleCheckingEnabled,,android.telephony.TelephonyManager getNeighboringCellInfo
+,java.lang.Integer byteValue,,android.telephony.TelephonyManager getSimSerialNumber
+,android.content.ContentResolver delete,,android.telephony.TelephonyManager getSimState
+,android.widget.LinearLayout setBackgroundDrawable,,android.telephony.TelephonyManager getSubscriberId
+,java.lang.reflect.AccessibleObject setAccessible,,android.telephony.TelephonyManager getVoiceMailAlphaTag
+,java.util.zip.GZIPOutputStream finish,,android.telephony.TelephonyManager getVoiceMailNumber
+,android.view.Window setIcon,,android.telephony.TelephonyManager listen
+,java.lang.IllegalAccessError printStackTrace,,android.text.Editable toString
+,android.content.ContextWrapper sendOrderedBroadcastAsUser,,android.text.format.Time set
+,android.view.Window setLogo,,android.text.format.Time Time
+,android.content.ContextWrapper sendStickyBroadcastAsUser,,android.text.format.Time toMillis
+,android.content.ContextWrapper sendStickyOrderedBroadcastAsUser,,android.util.Base64 decode
+,android.content.ContextWrapper sendBroadcastAsUser,,android.util.Base64 encode
+,android.hardware.Sensor getName,,android.view.animation.AlphaAnimation start
+,android.content.ContextWrapper sendStickyOrderedBroadcast,,android.view.inputmethod.InputMethodManager showInputMethodAndSubtypeEnabler
+,android.content.ContextWrapper removeStickyBroadcast,,android.view.ViewGroup addView
+,android.content.ContextWrapper sendOrderedBroadcast,,android.view.ViewManager addView
+,android.content.ContextWrapper sendStickyBroadcast,,android.view.ViewManager removeView
+,android.content.ContextWrapper createPackageContext,,android.view.Window getLayoutInflater
+,java.lang.reflect.InvocationTargetException printStackTrace,,android.view.Window setIcon
+,java.io.BufferedWriter write,,android.view.Window setLogo
+,android.widget.EditText setTextSize,,android.view.WindowManager aadView
+,android.content.ContextWrapper stopService,,android.webkit.CookieManager removeAllCookie
+,java.util.WeakHashMap keySet,,android.webkit.WebChromeClient onRequestFocus
+,android.content.pm.ServiceInfo ServiceInfo,,android.webkit.WebSettings getMinimumFontSize
+,android.os.Bundle getClassLoader,,android.webkit.WebSettings setDefaultZoom
+,org.xmlpull.v1.XmlPullParser nextText,,android.webkit.WebSettings setMinimumFontSize
+,android.view.Window getLayoutInflater,,android.webkit.WebSettings setTextSize
+,java.util.jar.Manifest read,,android.webkit.WebView getVisibility
+,java.util.jar.Attributes putAll,,android.webkit.WebView removeAllViews
+,java.util.zip.ZipEntry setCompressedSize,,android.webkit.WebView removeJavascriptInterface
+,android.webkit.WebChromeClient onRequestFocus,,android.webkit.WebView saveWebArchive
+,android.app.Application getDir,,android.webkit.WebView setDownloadListener
+,javax.crypto.EncryptedPrivateKeyInfo getKeySpec,,android.webkit.WebView setTag
+,java.util.jar.Attributes Attributes,,android.webkit.WebView setVerticalScrollbarOverlay
+,java.util.jar.Attributes putValue,,android.widget.Button setLeft
+,android.app.Instrumentation onException,,android.widget.CheckBox getTextColors
+,android.app.Instrumentation callActivityOnRestoreInstanceState,,android.widget.EditText getContext
+,android.app.Instrumentation callActivityOnUserLeaving,,android.widget.EditText setFocusable
+,android.app.Instrumentation callActivityOnPostCreate,,android.widget.EditText setFocusableInTouchMode
+,android.app.Instrumentation callActivityOnSaveInstanceState,,android.widget.EditText setGravity
+,android.app.Instrumentation callActivityOnStart,,android.widget.EditText setTextSize
+,dalvik.system.DexClassLoader findLibrary,,android.widget.LinearLayout setBackgroundDrawable
+,android.app.Instrumentation callActivityOnNewIntent,,android.widget.LinearLayout setMinimumWidth
+,android.content.ContextWrapper sendBroadcast,,android.widget.QuickContactBadge assignContactFromEmail
+,android.widget.CheckBox getTextColors,,android.widget.QuickContactBadge assignContactFromPhone
+,android.content.pm.ProviderInfo ProviderInfo,,android.widget.QuickContactBadge onClick
+,,,android.widget.RadioButton isChecked
+,,,android.widget.RadioButton setOnCheckedChangeListener
+,,,android.widget.TextView setText
+,,,android.widget.Toast cancel
+,,,dalvik.system.BaseDexClassLoader BaseDexClassLoader
+,,,dalvik.system.DexClassLoader DexClassLoader
+,,,dalvik.system.DexClassLoader findLibrary
+,,,dalvik.system.DexFile DexFile
+,,,dalvik.system.InMemoryDexClassLoader InMemoryDexClassLoader
+,,,dalvik.system.PathClassLoader PathClassLoader
+,,,java.io.BufferedInputStream mark
+,,,java.io.BufferedInputStream reset
+,,,java.io.BufferedReader ready
+,,,java.io.BufferedWriter close
+,,,java.io.BufferedWriter write
+,,,java.io.ByteArrayOutputStream reset
+,,,java.io.DataInputStream readLine
+,,,java.io.File createNewFile
+,,,java.io.File delete
+,,,java.io.File list
+,,,java.io.File listFiles
+,,,java.io.File mkdir
+,,,java.io.File renameTo
+,,,java.io.FileNotFoundException toString
+,,,java.io.FileOutputStream write
+,,,java.io.FileReader read
+,,,java.io.FileWriter close
+,,,java.io.FileWriter write
+,,,java.io.LineNumberReader close
+,,,java.io.LineNumberReader LineNumberReader
+,,,java.io.LineNumberReader readLine
+,,,java.io.OutputStreamWriter close
+,,,java.io.OutputStreamWriter flush
+,,,java.io.Reader markSupported
+,,,java.io.StringReader close
+,,,java.io.UnsupportedEncodingException initCause
+,,,java.lang.Character Character
+,,,java.lang.Character toTitleCase
+,,,java.lang.Class forName
+,,,java.lang.Class getDeclaredField
+,,,java.lang.Class getDeclaredMethod
+,,,java.lang.Class getDeclaredMethods
+,,,java.lang.ClassLoader ClassLoader
+,,,java.lang.ClassLoader getParent
+,,,java.lang.Exception fillInStackTrace
+,,,java.lang.Float Float
+,,,java.lang.IllegalAccessError printStackTrace
+,,,java.lang.Integer byteValue
+,,,java.lang.NumberFormatException printStackTrace
+,,,java.lang.Process destroy
+,,,java.lang.Process getInputStream
+,,,java.lang.Process getOutputStream
+,,,java.lang.Process waitFor
+,,,java.lang.ProcessBuilder ProcessBuilder
+,,,java.lang.ProcessBuilder redirectErrorStream
+,,,java.lang.ProcessBuilder start
+,,,java.lang.reflect.AccessibleObject setAccessible
+,,,java.lang.reflect.InvocationTargetException printStackTrace
+,,,java.lang.reflect.Method invoke
+,,,java.lang.reflect.Proxy newProxyInstance
+,,,java.lang.Runtime exec
+,,,java.lang.Runtime getRuntime
+,,,java.lang.Runtime load
+,,,java.lang.Runtime loadLibrary
+,,,java.lang.StringBuffer ensureCapacity
+,,,java.lang.StringBuffer substring
+,,,java.math.BigInteger divideAndRemainder
+,,,java.net.HttpURLConnection connect
+,,,java.net.NetworkInterface getByName
+,,,java.net.NetworkInterface getDisplayName
+,,,java.net.NetworkInterface getInetAddresses
+,,,java.net.Proxy Proxy
+,,,java.net.Socket connect
+,,,java.net.SocketException printStackTrace
+,,,java.net.SocketTimeoutException printStackTrace
+,,,java.net.URISyntaxException getCause
+,,,java.net.URL getDefaultPort
+,,,java.net.URLClassLoader loadClass
+,,,java.net.URLClassLoader URLClassLoader
+,,,java.net.URLConnection connect
+,,,java.net.URLConnection getHeaderField
+,,,java.net.URLConnection setDoInput
+,,,java.nio.channels.FileChannel lock
+,,,java.nio.channels.FileLock release
+,,,java.nio.charset.CoderResult isError
+,,,java.nio.charset.CoderResult isOverflow
+,,,java.nio.charset.CoderResult toString
+,,,java.nio.charset.IllegalCharsetNameException IllegalCharsetNameException
+,,,java.security.cert.Certificate getPublicKey
+,,,java.security.cert.CertificateEncodingException printStackTrace
+,,,java.security.cert.CertificateException printStackTrace
+,,,java.security.DigestInputStream DigestInputStream
+,,,java.security.DigestInputStream getMessageDigest
+,,,java.security.DigestInputStream read
+,,,java.security.interfaces.RSAPrivateKey getModulus
+,,,java.security.interfaces.RSAPublicKey getModulus
+,,,java.security.InvalidAlgorithmParameterException printStackTrace
+,,,java.security.InvalidKeyException printStackTrace
+,,,java.security.Key getEncoded
+,,,java.security.SecureRandom setSeed
+,,,java.security.Security setProperty
+,,,java.security.spec.RSAPrivateCrtKeySpec RSAPrivateCrtKeySpec
+,,,java.security.spec.RSAPrivateKeySpec RSAPrivateKeySpec
+,,,java.security.spec.RSAPublicKeySpec RSAPublicKeySpec
+,,,java.text.DateFormat getInstance
+,,,java.text.SimpleDateFormat applyLocalizedPattern
+,,,java.text.SimpleDateFormat applyPattern
+,,,java.util.concurrent.FutureTask done
+,,,java.util.concurrent.ScheduledExecutorService awaitTermination
+,,,java.util.concurrent.ThreadPoolExecutor getActiveCount
+,,,java.util.concurrent.ThreadPoolExecutor getCompletedTaskCount
+,,,java.util.concurrent.ThreadPoolExecutor getTaskCount
+,,,java.util.Date toLocaleString
+,,,java.util.Hashtable keys
+,,,java.util.jar.Attributes Attributes
+,,,java.util.jar.Attributes putAll
+,,,java.util.jar.Attributes putValue
+,,,java.util.jar.JarEntry getName
+,,,java.util.jar.JarFile close
+,,,java.util.jar.JarFile entries
+,,,java.util.jar.JarFile JarFile
+,,,java.util.jar.Manifest read
+,,,java.util.Properties put
+,,,java.util.Properties store
+,,,java.util.SortedMap putAll
+,,,java.util.SortedSet addAll
+,,,java.util.SortedSet iterator
+,,,java.util.WeakHashMap keySet
+,,,java.util.WeakHashMap size
+,,,java.util.zip.Adler32 Adler32
+,,,java.util.zip.Adler32 getValue
+,,,java.util.zip.Adler32 reset
+,,,java.util.zip.Adler32 update
+,,,java.util.zip.Deflater Deflater
+,,,java.util.zip.Deflater finished
+,,,java.util.zip.GZIPOutputStream finish
+,,,java.util.zip.GZIPOutputStream flush
+,,,java.util.zip.ZipEntry setCompressedSize
+,,,javax.crypto.BadPaddingException printStackTrace
+,,,javax.crypto.Cipher doFinal
+,,,javax.crypto.Cipher getBlockSize
+,,,javax.crypto.Cipher getInstance
+,,,javax.crypto.Cipher init
+,,,javax.crypto.CipherOutputStream close
+,,,javax.crypto.CipherOutputStream flush
+,,,javax.crypto.CipherOutputStream write
+,,,javax.crypto.EncryptedPrivateKeyInfo getKeySpec
+,,,javax.crypto.IllegalBlockSizeException printStackTrace
+,,,javax.crypto.KeyGenerator generateKey
+,,,javax.crypto.KeyGenerator getInstance
+,,,javax.crypto.KeyGenerator init
+,,,javax.crypto.Mac getAlgorithm
+,,,javax.crypto.NoSuchPaddingException printStackTrace
+,,,javax.crypto.SecretKeyFactory generateSecret
+,,,javax.crypto.SecretKeyFactory getInstance
+,,,javax.crypto.spec.DESedeKeySpec DESedeKeySpec
+,,,javax.crypto.spec.DESKeySpec DESKeySpec
+,,,javax.crypto.spec.SecretKeySpec SecretKeySpec
+,,,javax.net.ssl.HttpsURLConnection setDefaultHostnameVerifier
+,,,org.apache.http.conn.ConnectTimeoutException printStackTrace
+,,,org.apache.http.params.HttpConnectionParams setStaleCheckingEnabled
+,,,org.apache.http.params.HttpParams setIntParameter
+,,,org.w3c.dom.Element getElementsByTagName
+,,,org.xmlpull.v1.XmlPullParser nextText
+,,,org.xmlpull.v1.XmlSerializer setFeature
+,,,org.xmlpull.v1.XmlSerializer text
