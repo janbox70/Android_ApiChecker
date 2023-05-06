@@ -44,7 +44,7 @@ def load_key_api(file_path):
     for i in range(len(apis)):
         apis[i] = apis[i].strip()
     api_set_file.close()
-    print 'load key api, size:', len(apis)
+    print('load key api, size:', len(apis))
     return apis
 
 def search_ref(packages, source_dir, apis):
@@ -87,13 +87,11 @@ def search_ref(packages, source_dir, apis):
     for api in api_ref_count:
         ref_count = api_ref_count[api]
         count = count + ref_count
-        line = str(api) + '\t' + str(ref_count) + '\n';
-        print line
+        line = str(api) + '\t' + str(ref_count) + '\n'
+        print(line)
         api_ref_record_file.write(line)
     api_ref_record_file.close()
-    print count
-
-
+    print(count)
 
 
 if __name__ == '__main__':

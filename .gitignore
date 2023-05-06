@@ -1,5 +1,6 @@
-android-x86
-running_logs
-*.pkl
 .idea
-/apk_detect_result.txt
+/android-x86
+/running_logs
+data/*.pkl
+data/*.model
+data/apk_detect_result.txt

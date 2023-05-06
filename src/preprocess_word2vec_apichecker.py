@@ -4,12 +4,12 @@
     comments here
 """
 __author__ = 'apichecker'
+
+import codecs
 import os
 import pickle as pkl
 import gensim
 import numpy as np
-
-
 
 # google dev
 dangerous_permission = {
@@ -125,99 +125,126 @@ extra_permissions = {
     "WRITE_APN_SETTINGS",
 }
 
-LabeledSentence = gensim.models.doc2vec.LabeledSentence
 
-def preprocess(log_dir, resultfile_path):
+data_path = "../data"
 
+def prep_result_dict(resultfile_path):
     result_dict = {}
-    log_dict = {}
-    op_set = set()
-    dangerous_permission.update(normal_permissions)
-    dangerous_permission.update(extra_permissions)
-    dangerous_permission.update(signature_permissions)
-
-    action_file = open('action_list.txt', 'r')
-    action_list = action_file.readlines()
-    for i in range(len(action_list)):
-        action_list[i] = action_list[i].strip()
-    print(len(dangerous_permission), dangerous_permission)
-    print(len(action_list), action_list)
-
-    with open(resultfile_path) as f:
+    with open(resultfile_path, encoding="utf-8") as f:
         for line in f.readlines()[1:]:
             line = line.split("\t")
-            if len(line) != 20:           
+            if len(line) != 20:
                 print("Malformed line %s" % ("\t".join(line)))
                 continue
-            line = [l.strip() for l in line]    
-            label = line[0]  
+            line = [l.strip() for l in line]
+            label = line[0]
             time = line[2]
             taskid = line[10]
-            packagename=line[17]
+            packagename = line[17]
             appname = line[19]
-            result_dict[taskid] = ["1" if label=="Black" else "0", time, taskid, packagename, appname]
-            log_dict[taskid] = []
+            result_dict[taskid] = ["1" if label == "Black" else "0", time, taskid, packagename, appname]
+    return result_dict
 
-    addPermission = True
-    addReceiver = True
-    dict_path = "dict.txt"
-    pre_path = "pre_word2vec.pkl"
 
+def prep_log_dict(log_dir, log_dict, addPermission, addReceiver):
+
+    action_list = []
+    # with open('action_list.txt', 'r') as action_file:
+    #     action_list = action_file.readlines()
+
+    for i in range(len(action_list)):
+        action_list[i] = action_list[i].strip()
+
+    print("actions: ", len(action_list), action_list)
+
+    op_set = set()
     for logfile in os.listdir(log_dir):
         if not logfile.endswith(".txt"):
             continue
-        print("processing %s" % os.path.join(log_dir, logfile))
-        with open(os.path.join(log_dir, logfile)) as f:
-            for line in f.readlines()[1:]:
+        fullname = os.path.join(log_dir, logfile)
+        print("processing %s" % fullname)
+        with open(fullname, mode="rb") as f:
+            malformed = 0
+            for no, line in enumerate(f.readlines()):
+                if no == 0:
+                    continue
+                # print("[{}]{}".format(no, line))
+
+                try:
+                    line = codecs.decode(line)
+                except Exception as e:
+                    malformed += 1
+                    # print("Malformed line(%d) ignored: %s" % (no, line[0:50]))
+                    continue
+
                 line = line.split("\t")
 
                 if len(line) != 9:
-                    print("Malformed line %s" % ("\t".join(line)))
+                    malformed += 1
+                    # print("Malformed line(%d) ignored: %s" % (no, line[0]))
                     continue
                 line = [l.strip() for l in line]
-                fdata=line[2]
+                fdata = line[2]
                 fop = line[4]
-                ftaskid=line[8]
+                ftaskid = line[8]
+                if ftaskid not in log_dict:
+                    continue
+
                 if addPermission and fop == "DefineUsesPermissions":  # permission
                     for permission in dangerous_permission:
                         if fdata.find(permission) != -1:
-                            if ftaskid not in result_dict:
-                                continue
-                            else:
-                                log_dict[ftaskid].append(fop + ":" + permission)
-                                op_set.add(fop + ":" + permission)
-                elif addReceiver and (fop == "DefineReceiver" or fop == "RegisterReceiver"):   # receiver
+                            log_dict[ftaskid].append(fop + ":" + permission)
+                            op_set.add(fop + ":" + permission)
+                elif addReceiver and (fop == "DefineReceiver" or fop == "RegisterReceiver"):  # receiver
                     for kv in fdata.split("{|}"):
                         if kv.find("Actions{:}") != -1:
                             providers = kv.split("{:}")[1].split(";")
                             for pvd in providers:
-                                if ftaskid in result_dict and pvd in action_list:
+                                if pvd in action_list:
                                     log_dict[ftaskid].append(fop + ":" + pvd)
                                     op_set.add(fop + ":" + pvd)
 
                 else:
-                    if ftaskid not in result_dict:
-                        continue
-                    else:
-                        log_dict[ftaskid].append(fop)
-                        op_set.add(fop)
-    prefix = ""
-    feature_dict = {}
+                    log_dict[ftaskid].append(fop)
+                    op_set.add(fop)
+
+            print("   total:{}, malformed:{}".format(no, malformed))
+
+    return log_dict, op_set
+
+
+def preprocess(log_dir, resultfile_path):
+    dangerous_permission.update(normal_permissions)
+    dangerous_permission.update(extra_permissions)
+    dangerous_permission.update(signature_permissions)
+
+    print("permissions: ", len(dangerous_permission), dangerous_permission)
+
+    result_dict = prep_result_dict(resultfile_path)
+    log_dict = dict((key, []) for key in result_dict.keys())
+
+    print("loaded-tasks: ", len(result_dict))
+
+    pre_path = os.path.join(data_path, "pre_word2vec.pkl")
+
+    log_dict, op_set = prep_log_dict(log_dir, log_dict, addPermission=True, addReceiver=True)
+
     print("Unique API Set Size %d" % (len(op_set)))
-    print("Writing feature dict to " + dict_path)
 
     docLabels = [ftaskid for ftaskid in log_dict]
     data = []
     for doc in docLabels:
         data.append(log_dict[doc])
-    model = gensim.models.Word2Vec(size=200, window=2, min_count=1, workers=20, alpha=0.025)
-    model.build_vocab(data)
+    w2vmodel = gensim.models.Word2Vec(vector_size=200, window=2, min_count=1, workers=20, alpha=0.025)
+    w2vmodel.build_vocab(data)
     print("Training")
-    model.train(data, total_examples=model.corpus_count, epochs=model.iter)
-    model.save("word2vec.model")
+    w2vmodel.train(data, total_examples=w2vmodel.corpus_count, epochs=w2vmodel.epochs)
+    w2vmodel.save(os.path.join(data_path, "word2vec.model"))
+
+    model = w2vmodel.wv
     print("preparing train data")
     outx = []
-    outy=[]
+    outy = []
     for k, v in result_dict.items():
         if k not in log_dict:
             print("Result taskid %s not in log, skipping..." % (k))
@@ -229,7 +256,7 @@ def preprocess(log_dir, resultfile_path):
                 if word not in model:
                     continue
                 feature_array += model[word]
-            feature_array = feature_array/len(log_dict[k])
+            feature_array = feature_array / len(log_dict[k])
 
         outx.append(feature_array)
         outy.append(v[0])
@@ -238,7 +265,8 @@ def preprocess(log_dir, resultfile_path):
         pkl.dump([outx, outy], fpre, protocol=2)
     pass
 
+
 if __name__ == "__main__":
-    preprocess(log_dir="/run_log",
-               resultfile_path="/apk_detect_result.txt")
+    preprocess(log_dir="../running_logs",
+               resultfile_path="../data/apk_detect_result.txt")
     pass

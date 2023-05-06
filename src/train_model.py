@@ -5,20 +5,24 @@
 """
 import os
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
+from sklearn.linear_model import LinearRegression
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn import tree, svm, linear_model
-from catboost import CatBoostClassifier
+# from catboost import CatBoostClassifier
 from sklearn.naive_bayes import BernoulliNB
 from sklearn.metrics import accuracy_score, recall_score, precision_score, f1_score
 from sklearn.model_selection import KFold
+from sklearn.neural_network import MLPClassifier
 import numpy as np
-import lightgbm as lgb
+# import lightgbm as lgb
 
-import cPickle as pkl
+import pickle as pkl
+
 __author__ = 'apichecker'
 
+
 if __name__ == "__main__":
-    with open("apichecker.pkl") as pklfile:
+    with open("apichecker.pkl", "rb") as pklfile:
         X, y = pkl.load(pklfile)
         y = [int(_) for _ in y]
         total_count = len(X)
@@ -37,7 +41,7 @@ if __name__ == "__main__":
 
                     if y_line == 1:
                         black_freq_counter[i] += 1
-        for i in ragne(1,9):
+        for i in range(1, 9):
             kf = KFold(n_splits=10)
             round = 1
             X = np.array(X)
@@ -56,21 +60,21 @@ if __name__ == "__main__":
                 elif i == 4:
                     clf = LinearRegression()
                 elif i == 5:
-                    clf = KNeighborsClassifier(n_neighbors=5,weights=’uniform’, algorithm=’auto’)
+                    clf = KNeighborsClassifier(n_neighbors=5, weights='uniform', algorithm='auto')
                 elif i == 6:
                     clf = svm.SVC(gamma='auto')
                 elif i == 7:
-                    clf = MLPClassifier(hidden_layer_sizes=(100), solver=’adam’, alpha=0.0001)
+                    clf = MLPClassifier(hidden_layer_sizes=(100), solver='adam', alpha=0.0001)
                 elif i == 8:
-                    clf = MLPClassifier(hidden_layer_sizes=(100,75,50,20),solver='adam', alpha=0.0001)
+                    clf = MLPClassifier(hidden_layer_sizes=(100, 75, 50, 20), solver='adam', alpha=0.0001)
                 else:
                     clf = GradientBoostingClassifier(n_estimators=100, learning_rate=0.1, max_depth=3, random_state=0)
-                
+
                 print("Training Classification Model %d", i)
                 clf.fit(X_train, y_train)
-                #pkl.dump(clf, model_file)
+                # pkl.dump(clf, model_file)
                 predict = clf.predict(X_test)
-                print predict
+                print(predict)
 
                 print("Precision %f" % precision_score(y_test, predict))
                 print("RECALL %f" % recall_score(y_test, predict))

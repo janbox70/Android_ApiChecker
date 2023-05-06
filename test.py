@@ -1,3 +1,5 @@
+# coding:utf-8
+
 import json
 
 import numpy as np
@@ -15,7 +17,7 @@ def dump_sorted_set(name: str, data: set):
 
 
 def test_api():
-    df = pd.read_csv("API_Set.csv", dtype=str, na_values="", keep_default_na=False, na_filter=False)
+    df = pd.read_csv("data/API_Set.csv", dtype=str, na_values="", keep_default_na=False, na_filter=False)
     print(df.shape)
 
     apis = set()
@@ -35,20 +37,7 @@ def test_api():
     # print(json.dumps(odict, indent=2))
 
 
-def test_pkl():
-    with open("apichecker.pkl", "rb") as pklfile:
-        X, y = pkl.load(pklfile)
-        y = [int(_) for _ in y]
-        total_count = len(X)
-        black_count = len(filter(lambda _: _ == 1, y))
-        print("Total line %d, Black: %d" % (total_count, black_count))
-
-        print(X)
-        print(y)
-
-
-
 if __name__ == "__main__":
-    # test_api()
-    test_pkl()
+    test_api()
+    # test_pkl()
 
