@@ -128,6 +128,14 @@ extra_permissions = {
 
 data_path = "../data"
 
+
+def save_sorted_set(name, data):
+    with open(os.path.join(data_path, name), "w", encoding="utf-8") as fp:
+        for item in sorted(data):
+            fp.write(item)
+            fp.write("\n")
+
+
 def prep_result_dict(resultfile_path):
     result_dict = {}
     with open(resultfile_path, encoding="utf-8") as f:
@@ -156,6 +164,8 @@ def prep_log_dict(log_dir, log_dict, addPermission, addReceiver):
         action_list[i] = action_list[i].strip()
 
     print("actions: ", len(action_list), action_list)
+
+    action_set = set()
 
     op_set = set()
     for logfile in os.listdir(log_dir):
@@ -200,6 +210,8 @@ def prep_log_dict(log_dir, log_dict, addPermission, addReceiver):
                         if kv.find("Actions{:}") != -1:
                             providers = kv.split("{:}")[1].split(";")
                             for pvd in providers:
+                                pvd = pvd.strip()
+                                action_set.add(pvd)
                                 if pvd in action_list:
                                     log_dict[ftaskid].append(fop + ":" + pvd)
                                     op_set.add(fop + ":" + pvd)
@@ -209,6 +221,9 @@ def prep_log_dict(log_dir, log_dict, addPermission, addReceiver):
                     op_set.add(fop)
 
             print("   total:{}, malformed:{}".format(no, malformed))
+
+    save_sorted_set("actions_set.txt", action_set)
+    save_sorted_set("op_set.txt", op_set)
 
     return log_dict, op_set
 

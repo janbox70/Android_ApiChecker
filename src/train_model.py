@@ -4,6 +4,8 @@
     comments here
 """
 import os
+from datetime import datetime
+
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 from sklearn.linear_model import LinearRegression
 from sklearn.neighbors import KNeighborsClassifier
@@ -22,11 +24,11 @@ __author__ = 'apichecker'
 
 
 if __name__ == "__main__":
-    with open("apichecker.pkl", "rb") as pklfile:
+    with open("../data/apichecker.pkl", "rb") as pklfile:
         X, y = pkl.load(pklfile)
         y = [int(_) for _ in y]
         total_count = len(X)
-        black_count = len(filter(lambda _: _ == 1, y))
+        black_count = len(list(filter(lambda _: _ == 1, y)))
         print("Total line %d, Black: %d" % (total_count, black_count))
         freq_counter = {}
         black_freq_counter = {}
@@ -70,13 +72,19 @@ if __name__ == "__main__":
                 else:
                     clf = GradientBoostingClassifier(n_estimators=100, learning_rate=0.1, max_depth=3, random_state=0)
 
-                print("Training Classification Model %d", i)
+                print("Training Classification Model %d: %s" % (i, clf.__class__))
+                start = datetime.now()
                 clf.fit(X_train, y_train)
                 # pkl.dump(clf, model_file)
                 predict = clf.predict(X_test)
-                print(predict)
+                predict = [1 if p > 0.5 else 0 for p in predict]
+                # print(predict)
 
-                print("Precision %f" % precision_score(y_test, predict))
-                print("RECALL %f" % recall_score(y_test, predict))
+                print("   Precision = %f,  Recall = %f,  F1 = %f,  cost = %.3f" % (
+                    precision_score(y_test, predict),
+                    recall_score(y_test, predict),
+                    f1_score(y_test, predict),
+                    (datetime.now() - start).total_seconds()
+                ))
                 break
         pass

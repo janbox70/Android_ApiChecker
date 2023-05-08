@@ -47,6 +47,7 @@ def load_key_api(file_path):
     print('load key api, size:', len(apis))
     return apis
 
+
 def search_ref(packages, source_dir, apis):
     android_class_list = set()
     api_ref_count = {}
@@ -72,7 +73,7 @@ def search_ref(packages, source_dir, apis):
                             api_ref_count[api] = api_ref_count[api] + len(res)
                             #print 'inside:', len(res), res
                         else:
-                            if re.search('import ' + api_class + ';', file_text) != None:
+                            if re.search('import ' + api_class + ';', file_text) is not None:
                                 res = re.findall(api_method + '\(.*\);', file_text)
                                 api_ref_count[api] = api_ref_count[api] + len(res)
                                 #print 'outside:', len(res), res
