@@ -17,7 +17,7 @@ def dump_sorted_set(name: str, data: set):
 
 
 def test_api():
-    df = pd.read_csv("data/API_Set.csv", dtype=str, na_values="", keep_default_na=False, na_filter=False)
+    df = pd.read_csv("../data/API_Set.csv", dtype=str, na_values="", keep_default_na=False, na_filter=False)
     print(df.shape)
 
     apis = set()

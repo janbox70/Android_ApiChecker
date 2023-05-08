@@ -126,11 +126,11 @@ extra_permissions = {
 }
 
 
-data_path = "../data"
+output_path = "../output"
 
 
 def save_sorted_set(name, data):
-    with open(os.path.join(data_path, name), "w", encoding="utf-8") as fp:
+    with open(os.path.join(output_path, name), "w", encoding="utf-8") as fp:
         for item in sorted(data):
             fp.write(item)
             fp.write("\n")
@@ -240,7 +240,7 @@ def preprocess(log_dir, resultfile_path):
 
     print("loaded-tasks: ", len(result_dict))
 
-    pre_path = os.path.join(data_path, "pre_word2vec.pkl")
+    pre_path = os.path.join(output_path, "pre_word2vec.pkl")
 
     log_dict, op_set = prep_log_dict(log_dir, log_dict, addPermission=True, addReceiver=True)
 
@@ -254,7 +254,7 @@ def preprocess(log_dir, resultfile_path):
     w2vmodel.build_vocab(data)
     print("Training")
     w2vmodel.train(data, total_examples=w2vmodel.corpus_count, epochs=w2vmodel.epochs)
-    w2vmodel.save(os.path.join(data_path, "word2vec.model"))
+    w2vmodel.save(os.path.join(output_path, "word2vec.model"))
 
     model = w2vmodel.wv
     print("preparing train data")
@@ -282,6 +282,6 @@ def preprocess(log_dir, resultfile_path):
 
 
 if __name__ == "__main__":
-    preprocess(log_dir="../running_logs",
+    preprocess(log_dir="../data/running_logs",
                resultfile_path="../data/apk_detect_result.txt")
     pass
