@@ -84,3 +84,50 @@ Total line 501971, Black: 38698,  features: 242
     saved to ../output\HistGradientBoostingClassifier.model.pkl
     Precision = 0.964761,  Recall = 0.881369,  F1 = 0.921182,  train_cost = 13.506, predict_cost = 0.552
 ```
+
+
+## 使用 pre_word2vec(160个特征 embedding 到128维向量) 后的分类模型效果
+```
+Total line 10924, Black: 1179,  features: 128
+[0] Training Classification Model BernoulliNB
+    train = 9831,  test = 1093
+    saved to ../output/model_pre_word2vec\BernoulliNB.model.pkl
+    Precision = 0.266150,  Recall = 0.830645,  F1 = 0.403131,  train_cost = 0.031, predict_cost = 0.010
+[1] Training Classification Model LinearRegression
+    train = 9831,  test = 1093
+    saved to ../output/model_pre_word2vec\LinearRegression.model.pkl
+    Precision = 0.909091,  Recall = 0.806452,  F1 = 0.854701,  train_cost = 0.066, predict_cost = 0.006
+[2] Training Classification Model RandomForestClassifier
+    train = 9831,  test = 1093
+    saved to ../output/model_pre_word2vec\RandomForestClassifier.model.pkl
+    Precision = 0.990909,  Recall = 0.879032,  F1 = 0.931624,  train_cost = 1.066, predict_cost = 0.012
+[3] Training Classification Model DecisionTreeClassifier
+    train = 9831,  test = 1093
+    saved to ../output/model_pre_word2vec\DecisionTreeClassifier.model.pkl
+    Precision = 0.837209,  Recall = 0.870968,  F1 = 0.853755,  train_cost = 0.804, predict_cost = 0.007
+[4] Training Classification Model KNeighborsClassifier
+    train = 9831,  test = 1093
+    saved to ../output/model_pre_word2vec\KNeighborsClassifier.model.pkl
+    Precision = 0.912698,  Recall = 0.927419,  F1 = 0.920000,  train_cost = 0.007, predict_cost = 0.203
+[5] Training Classification Model SVC
+    train = 9831,  test = 1093
+    saved to ../output/model_pre_word2vec\SVC.model.pkl
+    Precision = 0.905882,  Recall = 0.620968,  F1 = 0.736842,  train_cost = 1.814, predict_cost = 0.260
+[6] Training Classification Model MLPClassifier
+    train = 9831,  test = 1093
+    saved to ../output/model_pre_word2vec\MLPClassifier.model.pkl
+    Precision = 0.991150,  Recall = 0.903226,  F1 = 0.945148,  train_cost = 10.500, predict_cost = 0.007
+site-packages\sklearn\neural_network\_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+[7] Training Classification Model MLPClassifier_2
+    train = 9831,  test = 1093
+    saved to ../output/model_pre_word2vec\MLPClassifier_2.model.pkl
+    Precision = 0.974576,  Recall = 0.927419,  F1 = 0.950413,  train_cost = 15.894, predict_cost = 0.012
+[8] Training Classification Model GradientBoostingClassifier
+    train = 9831,  test = 1093
+    saved to ../output/model_pre_word2vec\GradientBoostingClassifier.model.pkl
+    Precision = 0.990291,  Recall = 0.822581,  F1 = 0.898678,  train_cost = 40.342, predict_cost = 0.010
+[9] Training Classification Model HistGradientBoostingClassifier
+    train = 9831,  test = 1093
+    saved to ../output/model_pre_word2vec\HistGradientBoostingClassifier.model.pkl
+    Precision = 0.990654,  Recall = 0.854839,  F1 = 0.917749,  train_cost = 0.894, predict_cost = 0.019
+```

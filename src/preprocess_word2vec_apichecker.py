@@ -112,8 +112,8 @@ signature_permissions = {
     "SYSTEM_ALERT_WINDOW",
     "WRITE_SETTINGS",
     "WRITE_VOICEMAIL",
-
 }
+
 extra_permissions = {
     "GET_TASKS",
     "MOUNT_UNMOUNT_FILESYSTEMS",
@@ -124,7 +124,6 @@ extra_permissions = {
     "READ_SETTINGS",
     "WRITE_APN_SETTINGS",
 }
-
 
 output_path = "../output"
 
@@ -154,8 +153,7 @@ def prep_result_dict(resultfile_path):
     return result_dict
 
 
-def prep_log_dict(log_dir, log_dict, addPermission, addReceiver):
-
+def prep_log_dict(log_dir, result_dict, addPermission, addReceiver):
     action_list = []
     # with open('action_list.txt', 'r') as action_file:
     #     action_list = action_file.readlines()
@@ -165,6 +163,7 @@ def prep_log_dict(log_dir, log_dict, addPermission, addReceiver):
 
     print("actions: ", len(action_list), action_list)
 
+    log_dict = {}
     action_set = set()
 
     op_set = set()
@@ -178,33 +177,31 @@ def prep_log_dict(log_dir, log_dict, addPermission, addReceiver):
             for no, line in enumerate(f.readlines()):
                 if no == 0:
                     continue
-                # print("[{}]{}".format(no, line))
-
                 try:
                     line = codecs.decode(line)
                 except Exception as e:
                     malformed += 1
-                    # print("Malformed line(%d) ignored: %s" % (no, line[0:50]))
+                    if malformed == 1:
+                        print("    Malformed line(%d) ignored: %s" % (no, line))
                     continue
 
                 line = line.split("\t")
-
                 if len(line) != 9:
                     malformed += 1
-                    # print("Malformed line(%d) ignored: %s" % (no, line[0]))
+                    # print("    Malformed line(%d) ignored: %s" % (no, line[0]))
                     continue
-                line = [l.strip() for l in line]
-                fdata = line[2]
-                fop = line[4]
-                ftaskid = line[8]
-                if ftaskid not in log_dict:
+                parts = [l.strip() for l in line]
+                fdata = parts[2]
+                fop = parts[4]
+                ftaskid = parts[8]
+                if ftaskid not in result_dict:
                     continue
 
+                words = []
                 if addPermission and fop == "DefineUsesPermissions":  # permission
                     for permission in dangerous_permission:
                         if fdata.find(permission) != -1:
-                            log_dict[ftaskid].append(fop + ":" + permission)
-                            op_set.add(fop + ":" + permission)
+                            words.append(fop + ":" + permission)
                 elif addReceiver and (fop == "DefineReceiver" or fop == "RegisterReceiver"):  # receiver
                     for kv in fdata.split("{|}"):
                         if kv.find("Actions{:}") != -1:
@@ -213,14 +210,19 @@ def prep_log_dict(log_dir, log_dict, addPermission, addReceiver):
                                 pvd = pvd.strip()
                                 action_set.add(pvd)
                                 if pvd in action_list:
-                                    log_dict[ftaskid].append(fop + ":" + pvd)
-                                    op_set.add(fop + ":" + pvd)
-
+                                    words.append(fop + ":" + pvd)
                 else:
-                    log_dict[ftaskid].append(fop)
-                    op_set.add(fop)
+                    words.append(fop)
 
-            print("   total:{}, malformed:{}".format(no, malformed))
+                if words:
+                    for fop in words:
+                        op_set.add(fop)
+                    if ftaskid not in log_dict:
+                        log_dict[ftaskid] = words
+                    else:
+                        log_dict[ftaskid].extend(words)
+
+            print("    total:{}, malformed:{}".format(no, malformed))
 
     save_sorted_set("actions_set.txt", action_set)
     save_sorted_set("op_set.txt", op_set)
@@ -229,6 +231,7 @@ def prep_log_dict(log_dir, log_dict, addPermission, addReceiver):
 
 
 def preprocess(log_dir, resultfile_path):
+    embeding_size = 128
     dangerous_permission.update(normal_permissions)
     dangerous_permission.update(extra_permissions)
     dangerous_permission.update(signature_permissions)
@@ -236,13 +239,12 @@ def preprocess(log_dir, resultfile_path):
     print("permissions: ", len(dangerous_permission), dangerous_permission)
 
     result_dict = prep_result_dict(resultfile_path)
-    log_dict = dict((key, []) for key in result_dict.keys())
 
     print("loaded-tasks: ", len(result_dict))
 
-    pre_path = os.path.join(output_path, "pre_word2vec.pkl")
+    log_dict, op_set = prep_log_dict(log_dir, result_dict, addPermission=True, addReceiver=True)
 
-    log_dict, op_set = prep_log_dict(log_dir, log_dict, addPermission=True, addReceiver=True)
+    print("loaded-tasks with log: ", len(log_dict))
 
     print("Unique API Set Size %d" % (len(op_set)))
 
@@ -250,9 +252,9 @@ def preprocess(log_dir, resultfile_path):
     data = []
     for doc in docLabels:
         data.append(log_dict[doc])
-    w2vmodel = gensim.models.Word2Vec(vector_size=200, window=2, min_count=1, workers=20, alpha=0.025)
+    w2vmodel = gensim.models.Word2Vec(vector_size=embeding_size, window=2, min_count=1, workers=20, alpha=0.025)
     w2vmodel.build_vocab(data)
-    print("Training")
+    print("Training word2vec")
     w2vmodel.train(data, total_examples=w2vmodel.corpus_count, epochs=w2vmodel.epochs)
     w2vmodel.save(os.path.join(output_path, "word2vec.model"))
 
@@ -260,24 +262,22 @@ def preprocess(log_dir, resultfile_path):
     print("preparing train data")
     outx = []
     outy = []
-    for k, v in result_dict.items():
-        if k not in log_dict:
-            print("Result taskid %s not in log, skipping..." % (k))
-            continue
-
-        feature_array = np.array([0.0 for i in range(200)])
-        if len(log_dict[k]) != 0:
-            for word in log_dict[k]:
+    for k, words in log_dict.items():
+        feature_array = np.array([0.0 for i in range(embeding_size)], dtype='f4')
+        if len(words) != 0:
+            for word in words:
                 if word not in model:
                     continue
                 feature_array += model[word]
-            feature_array = feature_array / len(log_dict[k])
+            feature_array = feature_array / len(words)
 
         outx.append(feature_array)
-        outy.append(v[0])
+        outy.append(result_dict[k][0])
+
+    pre_path = os.path.join(output_path, "pre_word2vec.pkl")
     print("Writing train data to file" + pre_path)
-    with open(pre_path, "wb") as fpre:
-        pkl.dump([outx, outy], fpre, protocol=2)
+    with open(pre_path, "wb") as fp:
+        pkl.dump([outx, outy], fp)
     pass
 
 

@@ -28,11 +28,11 @@ classifiers = (
     "LinearRegression",
     "RandomForestClassifier",
     "DecisionTreeClassifier",
-    # "KNeighborsClassifier",
-    # "SVC",            # not suitable for large dataset
-    # "MLPClassifier",
-    # "MLPClassifier_2",
-    # "GradientBoostingClassifier",   # slower than HistGradientBoostingClassifier
+    "KNeighborsClassifier",
+    "SVC",            # not suitable for large dataset
+    "MLPClassifier",
+    "MLPClassifier_2",
+    "GradientBoostingClassifier",   # slower than HistGradientBoostingClassifier
     "HistGradientBoostingClassifier",
 )
 
@@ -64,8 +64,8 @@ def create_classifier(name):
     return clf
 
 
-def load_dataset():
-    with open("../data/apichecker.pkl", "rb") as pklfile:
+def load_dataset(filename):
+    with open(filename, "rb") as pklfile:
         X, y = pkl.load(pklfile)
         y = [int(_) for _ in y]
         total_count = len(X)
@@ -94,12 +94,12 @@ def dump_freq(X, y):
         print("[{}]: freq={} black={}".format(i, freq_counter[i], black_freq_counter[i]))
 
 
-def do_train(name, X_train, y_train, X_test, y_test):
-    clf = create_classifier(name)
+def do_train(output_dir, cls_name, X_train, y_train, X_test, y_test):
+    clf = create_classifier(cls_name)
     start = datetime.now()
     clf.fit(X_train, y_train)
 
-    filename = os.path.join("../output", name + ".model.pkl")
+    filename = os.path.join(output_dir, cls_name + ".model.pkl")
     with open(filename, "wb") as mf:
         pkl.dump(clf, mf)
         print("    saved to " + filename)
@@ -120,7 +120,13 @@ def do_train(name, X_train, y_train, X_test, y_test):
 
 
 def main():
-    X, y = load_dataset()
+    # filename = "../data/apichecker.pkl"
+    # output_dir = "../output/model_apichecker"
+
+    filename = "../output/pre_word2vec.pkl"
+    output_dir = "../output/model_pre_word2vec"
+
+    X, y = load_dataset(filename)
 
     X = np.array(X)
     y = np.array(y)
@@ -135,7 +141,7 @@ def main():
 
             print("[%d] Training Classification Model %s" % (i, name))
             print("    train = {},  test = {}".format(len(y_train), len(y_test)))
-            do_train(name, X_train, y_train, X_test, y_test)
+            do_train(output_dir, name, X_train, y_train, X_test, y_test)
 
             break
         pass
